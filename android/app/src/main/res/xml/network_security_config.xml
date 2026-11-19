@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Network Security Config for release builds.
+    youtube_explode_dart uses OkHttp to reach YouTube's CDN and API endpoints
+    over HTTPS. All connections are encrypted; no cleartext traffic needed.
+    This config explicitly enforces HTTPS-only to satisfy Android 9+ defaults.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- Trust the standard system CA store (covers YouTube/Google TLS certs) -->
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
